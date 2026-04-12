@@ -8,7 +8,7 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        RestAssured.baseURI = "https://reqres.in";
+        RestAssured.baseURI = ConfigReader.getProperty("baseUrl");
         System.out.println("Base URI set to: " + RestAssured.baseURI);
     }
 }

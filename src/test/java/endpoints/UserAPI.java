@@ -3,6 +3,7 @@ package endpoints;
 import base.BaseTest;
 import io.restassured.response.Response;
 import payloads.UserPayload;
+import utils.ConfigReader;
 import utils.TokenManager;
 
 import static io.restassured.RestAssured.*;
@@ -13,7 +14,7 @@ public class UserAPI extends BaseTest {
 
         return given()
                 .header("Content-Type", "application/json")
-                .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                 .header("Authorization", "Bearer " + TokenManager.getToken())
                 .body(payload)
                 .when()
@@ -23,7 +24,7 @@ public class UserAPI extends BaseTest {
     public static Response getUser(String id) {
 
         Response response = given()
-                .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                 .pathParam("id", id)
                 .when()
                 .get("/api/users/{id}");

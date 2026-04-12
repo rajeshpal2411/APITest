@@ -18,7 +18,7 @@ public class TokenManager {
 
         String token =  given()
                 .header("Content-Type", "application/json")
-                .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                 .body("{\"email\":\"eve.holt@reqres.in\",\"password\":\"cityslicka\"}")
                 .when()
                 .post("/api/login")

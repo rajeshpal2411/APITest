@@ -21,7 +21,7 @@ public class SampleAPITest {
         String token =
                 given()
                         .header("Content-Type", "application/json")
-                        .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                        .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                         .body("{\"email\":\"eve.holt@reqres.in\",\"password\":\"cityslicka\"}")
                         .when()
                         .post("/api/login")
@@ -37,7 +37,7 @@ public class SampleAPITest {
         Response createResponse =
                 given()
                         .header("Content-Type", "application/json")
-                        .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                        .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                         .header("Authorization", "Bearer " + token)
                         .body("{\"name\":\"Rajesh2\",\"job\":\"QA Engineer2\"}")
                         .when()
@@ -55,7 +55,7 @@ public class SampleAPITest {
         // STEP 3: Get User
         // =========================
         given()
-                .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                 .when()
                 .get("/api/users/2")
                 .then()
@@ -66,7 +66,7 @@ public class SampleAPITest {
         // STEP 4: Validate Response
         // =========================
         given()
-                .header("x-api-key", "reqres_57f9143dca5d43ccaa66fcf5693e8dbf")
+                .header("x-api-key", ConfigReader.getProperty("x-api-key"))
                 .pathParam("id", 2)
                 .when()
                 .get("/api/users/{id}")
