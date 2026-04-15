@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 import utils.ConfigReader;
 
 import static io.restassured.RestAssured.*;
+
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.*;
 
@@ -74,6 +75,7 @@ public class SampleAPITest {
                 .statusCode(200)
                 .body("data.id", equalTo(2))
                 .body("data.email", containsString("@reqres.in"))
+                .assertThat()
                .body(matchesJsonSchemaInClasspath("schema1.json"))
         ;
 

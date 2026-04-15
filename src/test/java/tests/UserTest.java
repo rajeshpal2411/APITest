@@ -3,6 +3,7 @@ package tests;
 import base.BaseTest;
 import endpoints.UserAPI;
 import io.restassured.response.Response;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import payloads.UserPayload;
 
@@ -12,7 +13,7 @@ public class UserTest extends BaseTest {
 
     @Test
     public void fullFlowTest() {
-
+        test.get().info("Creating user payload");
         // Step 1: Create User
         UserPayload payload = new UserPayload("Rajesh", "QA");
 
@@ -32,6 +33,20 @@ public class UserTest extends BaseTest {
                 .statusCode(200)
                 .body("data.id", equalTo(2))
                 .log().all()
-                ;
+        ;
+    }
+
+    @Test
+    public void test2() {
+        test.get().info("Dummy test 2");
+        System.out.println("This is test 2");
+        Assert.assertTrue(true);
+    }
+
+    @Test
+    public void test3() {
+        test.get().info("Dummy test 3");
+        System.out.println("This is test 3");
+        Assert.assertTrue(true);
     }
 }
