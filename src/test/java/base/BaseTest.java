@@ -2,6 +2,8 @@ package base;
 
 import com.aventstack.extentreports.*;
 import io.restassured.RestAssured;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utils.ConfigReader;
@@ -11,10 +13,11 @@ public class BaseTest {
 
     protected static ExtentReports extent;
     protected static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-
+    protected Logger logger = (Logger) LogManager.getLogger(this.getClass());
     @BeforeSuite
     public void setupReport() {
         extent = ExtentManager.getInstance();
+
     }
     @BeforeClass
     public void setup() {

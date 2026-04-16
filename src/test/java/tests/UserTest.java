@@ -22,6 +22,7 @@ public class UserTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void fullFlowTest() {
         test.get().info("Creating user payload");
+
         // Step 1: Create User
         UserPayload payload = new UserPayload("Rajesh", "QA");
 
@@ -43,6 +44,7 @@ public class UserTest extends BaseTest {
                 .log().all()
         ;
         Allure.addAttachment("Response", createRes.asPrettyString());
+        logger.info("Full flow test completed-Log4j");
     }
 
     @Test
