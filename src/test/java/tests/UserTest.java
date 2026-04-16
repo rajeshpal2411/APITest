@@ -14,10 +14,10 @@ import org.testng.annotations.Test;
 import payloads.UserPayload;
 
 import static org.hamcrest.Matchers.*;
-//@Listeners({AllureTestNg.class})
+@Listeners({AllureTestNg.class})
 public class UserTest extends BaseTest {
 
-    //@Test
+    @Test
     @Description("Create user API test")
     @Severity(SeverityLevel.CRITICAL)
     public void fullFlowTest() {
@@ -45,7 +45,7 @@ public class UserTest extends BaseTest {
         Allure.addAttachment("Response", createRes.asPrettyString());
     }
 
-    //@Test
+    @Test
     @Description("Sample test 2")
     @Severity(SeverityLevel.BLOCKER)
     public void test2() {
@@ -54,7 +54,7 @@ public class UserTest extends BaseTest {
         Assert.assertTrue(true);
     }
 
-    //@Test
+    @Test
     @Description("Sample test 3")
     @Severity(SeverityLevel.MINOR)
     public void test3() {
